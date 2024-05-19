@@ -45,10 +45,7 @@ make install
 make deploy
 ```
 
-> **NOTE**: If you encounter RBAC errors, you may need to grant yourself cluster-admin
-privileges or be logged in as admin.
-
-**Create instances of your solution**
+**Create `ClusterScan` resources:**
 You can apply the samples (examples) from the config/sample:
 
 ```sh
