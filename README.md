@@ -57,6 +57,16 @@ kubectl apply -k config/samples/
 
 >**NOTE**: Ensure that the samples has default values to test it out.
 
+### Useful commands
+```sh
+kubectl get clusterscan
+kubectl describe clusterscan <scan_name>
+kubectl get jobs
+kubectl get cronjob -w
+kubectl describe job job_name
+kubectl get pods
+kubectl logs pod_name
+```
 ### To Uninstall
 **Delete the instances (CRs) from the cluster:**
 
