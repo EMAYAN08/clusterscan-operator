@@ -6,7 +6,7 @@ The `ClusterScan` project provides a robust solution for running periodic or imm
 
 ## Architecture
 
-![Architecture Diagram](./Architecture/Architecture.jpg)
+![Workflow Diagram](./Architecture/Architecture.jpg)
 ### Prerequisites
 - go version v1.21.0+
 - docker version 17.03+.
