@@ -1,0 +1,6 @@
+## Append samples of your project ##
+resources:
+# - scan_v1alpha1_clusterscan.yaml
+- clusterscan.yaml
+- cron-job.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples

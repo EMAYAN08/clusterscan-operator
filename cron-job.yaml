@@ -1,0 +1,15 @@
+apiVersion: scan.clusterscandemo.com/v1alpha1
+kind: ClusterScan
+metadata:
+  name: cronjob-scan
+  namespace: default
+spec:
+  schedule: "*/1 * * * *"  # every minute
+  jobTemplate:
+    template:
+      spec:
+        containers:
+        - name: scan
+          image: busybox
+          command: ["echo", "CronJob Test - Hello Kubernetes!!!"]
+        restartPolicy: Never
