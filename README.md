@@ -6,12 +6,31 @@ The `ClusterScan` project provides a robust solution for running periodic or imm
 
 ## Architecture
 
-![Workflow Diagram](./Architecture/Architecture.jpg)
+![Workflow Diagram](./Architecture/NewArchitectutre.jpg)
 ### Prerequisites
 - go version v1.21.0+
 - docker version 17.03+.
 - kubectl version v1.11.3+.
 - Access to a Kubernetes v1.11.3+ cluster.
+
+### Custom Resource Definition (CRD)
+- Users define a `ClusterScan` resource that specifies the schedule and job template for scanning.
+- Update the `status` of the ClusterScan resource to reflect the current state and last execution time.
+
+![Workflow Diagram](./Architecture/CRD.png)
+
+### Reconciliation Logic for ClusterScan
+
+#### Main Steps:
+
+- <h4>Fetch ClusterScan Instance:</h4>The controller fetches the ClusterScan instance specified in the reconcile request. If the instance is not found (deleted), it returns without error.
+
+- <h4>Determine Job Type:</h4>If a schedule is specified, create or update a `CronJob`. If no schedule is specified, create or update a `one-time Job`.
+
+
+- <h4>Create/Update CronJob or Job:</h4>Set ClusterScan as the owner of the created job to ensure proper garbage collection. If the job or cron job already exists, update it as needed; otherwise, create a new one.
+- <h4>Update ClusterScan Status:</h4> Update the ClusterScan status with the `last scan time` and `last scan result`.
+- <h4>Error Handling:</h4>Proper error handling to ensure retries and logging in case of transient errors.
 
 ### To Deploy on the cluster
 **Build and push your image to the `Docker Hub`:**
@@ -83,25 +102,9 @@ make uninstall
 make undeploy
 ```
 
-## Project Distribution
+### Completed Assignment Requirements
 
-Following are the steps to build the installer and distribute this project to users.
-
-1. Build the installer for the image built and published in the registry:
-
-```sh
-make build-installer IMG=<some-registry>/clusterscan-operator:tag
-```
-
-NOTE: The makefile target mentioned above generates an 'install.yaml'
-file in the dist directory. This file contains all the resources built
-with Kustomize, which are necessary to install this project without
-its dependencies.
-
-2. Using the installer
-
-Users can just run kubectl apply -f <URL for YAML BUNDLE> to install the project, i.e.:
-
-```sh
-kubectl apply -f https://raw.githubusercontent.com/<org>/clusterscan-operator/<tag or branch>/dist/install.yaml
-```
+- Custom Controller - ClusterScan ✅
+- Spec and Status ✅
+- Jobs (One-time execution) ✅
+- Cron Jobs (Scheduled/Recurring Execution) ✅
