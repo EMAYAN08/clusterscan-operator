@@ -70,7 +70,7 @@ func (r *ClusterScanReconciler) Reconcile(ctx context.Context, req ctrl.Request)
 	// Check if the scan is scheduled or needs to run immediately
 	if scan.Spec.Schedule != "" {
 		// Handle CronJob creation
-		cronJob := &batchv1.CronJob{ // Use batch/v1
+		cronJob := &batchv1.CronJob{
 			ObjectMeta: metav1.ObjectMeta{
 				Name:      scan.Name + "-cronjob",
 				Namespace: scan.Namespace,
@@ -153,6 +153,6 @@ func (r *ClusterScanReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&scanv1alpha1.ClusterScan{}).
 		Owns(&batchv1.Job{}).
-		Owns(&batchv1.CronJob{}). // Updated to use batch/v1
+		Owns(&batchv1.CronJob{}).
 		Complete(r)
 }

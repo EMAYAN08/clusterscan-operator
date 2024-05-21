@@ -4,13 +4,17 @@ The `ClusterScan` controller is a custom Kubernetes controller designed to manag
 ## Description
 The `ClusterScan` project provides a robust solution for running periodic or immediate scan jobs across a Kubernetes cluster. By defining a `ClusterScan` custom resource, users can specify the schedule and job template, allowing for easy integration with existing CI/CD pipelines and security workflows. The controller manages the lifecycle of these scan jobs, ensuring they are executed as per the specified schedule and reporting the results back to the cluster.
 
-### Completed Assignment Requirements
+## Completed Assignment Requirements
 
 - Custom Controller - ClusterScan ✅
 - Spec and Status ✅
 - Jobs (One-time execution) ✅
 - Cron Jobs (Scheduled/Recurring Execution) ✅
 
+## Demo
+
+- [Demo Video]()
+- [Demo Presentation]()
 ## Architecture
 
 ![Workflow Diagram](./Architecture/NewArchitectutre.jpg)

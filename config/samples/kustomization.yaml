@@ -3,4 +3,6 @@ resources:
 # - scan_v1alpha1_clusterscan.yaml
 - clusterscan.yaml
 - cron-job.yaml
+- securityscan.yaml
+- compliancecheck.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples

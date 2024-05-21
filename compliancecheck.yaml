@@ -1,0 +1,18 @@
+apiVersion: scan.clusterscandemo.com/v1alpha1
+kind: ClusterScan
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterscan-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: compliance-check
+  namespace: default
+spec:
+  schedule: "" # Can be run on a schedule as a cron job example: Weekly on Sundays at midnight
+  jobTemplate:
+    template:
+      spec:
+        containers:
+        - name: kube-bench
+          image: aquasec/kube-bench:latest
+          command: ["kube-bench"]
+        restartPolicy: OnFailure
