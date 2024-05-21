@@ -4,7 +4,7 @@ metadata:
   name: cronjob-scan
   namespace: default
 spec:
-  schedule: "*/1 * * * *"  # every minute
+  schedule: "*/1 * * * *"  # run every minute
   jobTemplate:
     template:
       spec:

@@ -14,10 +14,10 @@ The `ClusterScan` project provides a robust solution for running periodic or imm
 ## Demo
 
 - [Demo Video]()
-- [Demo Presentation]()
+- [Demo Presentation](./Documentation/Presentation.pdf)
 ## Architecture
 
-![Workflow Diagram](./Architecture/NewArchitectutre.jpg)
+![Workflow Diagram](./Documentation/NewArchitectutre.jpg)
 ### Prerequisites
 - go version v1.21.0+
 - docker version 17.03+.
@@ -28,7 +28,7 @@ The `ClusterScan` project provides a robust solution for running periodic or imm
 - Users define a `ClusterScan` resource that specifies the schedule and job template for scanning.
 - Update the `status` of the ClusterScan resource to reflect the current state and last execution time.
 
-![Workflow Diagram](./Architecture/CRD.png)
+![Workflow Diagram](./Documentation/CRD.png)
 
 ### Reconciliation Logic for ClusterScan
 
