@@ -13,7 +13,7 @@ The `ClusterScan` project provides a robust solution for running periodic or imm
 
 ## Demo
 
-- [Demo Video]()
+- [Demo Video](./Documentation/DemoVideo.mp4)
 - [Demo Presentation](./Documentation/Presentation.pdf)
 ## Architecture
 
